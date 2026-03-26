@@ -112,5 +112,3 @@ If you have Docker installed, you can start the entire stack (Database, Backend,
 
 ```
 
-## 🛡️ License
-Distributed under the MIT License.
