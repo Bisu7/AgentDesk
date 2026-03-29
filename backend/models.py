@@ -71,6 +71,6 @@ class TicketAudit(db.Model):
     __tablename__ = 'ticket_audits'
     id = db.Column(db.Integer, primary_key=True)
     ticket_id = db.Column(db.Integer, db.ForeignKey('tickets.id', ondelete='CASCADE'), nullable=False)
-    action = db.Column(db.String(100), nullable=False) # e.g., 'created', 'status_changed', 'assigned'
+    action = db.Column(db.String(100), nullable=False) # e.g., 'created', 'status_changed', 'assigne
     changed_by_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
