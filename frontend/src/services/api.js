@@ -1,7 +1,9 @@
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Flask default port
+  baseURL: process.env.VITE_API_BASE_URL, // Flask default port
 });
 
 api.interceptors.request.use((config) => {
