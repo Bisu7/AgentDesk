@@ -81,7 +81,7 @@ const CustomerDashboard = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
                 <MessageSquare className="text-white" size={20} />
             </div>
-            <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 tracking-tight">SupportHub</h1>
+            <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 tracking-tight">AgentDesk</h1>
         </div>
         <div className="flex items-center space-x-6">
             <div className="hidden sm:flex items-center gap-2">

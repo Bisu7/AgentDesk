@@ -29,7 +29,7 @@ const Login = () => {
             <div className="bg-blue-600 p-3 rounded-full mb-4 shadow text-white">
                 <Shield size={32} />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800">AI Service Cloud</h2>
+            <h2 className="text-2xl font-bold text-gray-800">AgentDesk</h2>
             <p className="text-gray-500 text-sm mt-1">Sign in to your account</p>
         </div>
         

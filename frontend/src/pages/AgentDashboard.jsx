@@ -106,7 +106,7 @@ const AgentDashboard = () => {
       <div className="flex-1 flex flex-col h-full overflow-hidden bg-white rounded-l-3xl shadow-[-10px_0_30px_rgba(0,0,0,0.05)] border-l border-gray-100 z-10">
         <header className="px-10 py-8 border-b border-gray-100 shrink-0 flex justify-between items-end">
             <div>
-                <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Support Queue</h1>
+                <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 tracking-tight">AgentDesk</h1>
                 <p className="text-gray-500 mt-2 font-medium">Manage and resolve your assigned customer inquiries efficiently.</p>
             </div>
             {user?.performance_score !== undefined && (
