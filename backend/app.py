@@ -18,7 +18,8 @@ def create_app():
     jwt.init_app(app)
     
     frontend_url = os.environ.get('FRONTEND_URL', '*')
-    cors.init_app(app, resources={r"/api/*": {"origins": [frontend_url, "http://localhost:5173"]}})
+    allowed_origins = [frontend_url, "http://localhost:5173", "https://agent-desk-xi.vercel.app"]
+    cors.init_app(app, resources={r"/*": {"origins": allowed_origins}})
     
     socketio.init_app(app)
 
