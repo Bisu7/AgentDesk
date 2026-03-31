@@ -16,7 +16,10 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
-    cors.init_app(app)
+    
+    frontend_url = os.environ.get('FRONTEND_URL', '*')
+    cors.init_app(app, resources={r"/api/*": {"origins": [frontend_url, "http://localhost:5173"]}})
+    
     socketio.init_app(app)
 
     # JWT Error Handlers for debugging 422 errors
