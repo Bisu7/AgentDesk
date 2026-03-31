@@ -7,8 +7,11 @@ def create_app():
     load_dotenv()
     app = Flask(__name__)
     
-    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:password@localhost:5432/ai_customer_support')
+    db_url = os.environ.get('DATABASE_URL', 'postgresql://postgres:password@localhost:5432/ai_customer_support')
+    if db_url and db_url.startswith("postgres://"):
+        db_url = db_url.replace("postgres://", "postgresql://", 1)
+        
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET_KEY', 'jwt-dev-secret-key')
     
@@ -16,6 +19,11 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+    
+    # We must import models for migrate to detect them
+    with app.app_context():
+        import models
+        db.create_all() # Ensure tables are created on deployment
     
     frontend_url = os.environ.get('FRONTEND_URL', '*')
     allowed_origins = [frontend_url, "http://localhost:5173", "https://agent-desk-xi.vercel.app"]
@@ -50,9 +58,6 @@ def create_app():
     app.register_blueprint(chat_bp, url_prefix='/api/chat')
     app.register_blueprint(admin_bp, url_prefix='/api/admin')
     
-    # We must import models for migrate to detect them
-    with app.app_context():
-        import models
 
     @app.route('/')
     def index():
