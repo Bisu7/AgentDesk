@@ -7,4 +7,4 @@ psycopg2-binary==2.9.11
 python-dotenv==1.0.1
 requests==2.31.0
 Flask-SocketIO==5.3.6
-openai==1.14.2
+openai==1.59.0
