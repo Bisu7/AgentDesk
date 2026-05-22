@@ -1,4 +1,4 @@
-# AI-Powered Customer Support System
+# AgentDesk: AI-Powered Customer Support System
 
 An industry-level, full-stack customer support application featuring real-time communication, intelligent AI-driven ticket management, and professional analytics dashboards.
 
